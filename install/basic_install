@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+# Set XDG
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
+    XDG_CONFIG_HOME="$HOME/.config"
+fi
+
+if [[ -z "$XDG_DATA_HOME" ]]; then
+    XDG_DATA_HOME="$HOME/.local/share"
+fi
+
+if [[ -z "$XDG_CACHE_HOME" ]]; then
+    XDG_CACHE_HOME="$HOME/.cache"
+fi
+
+# Move execution to the dotfiles directory and load dependencies
+
+cd -- "$(dirname "$0")/.." || exit 1
+DOTFILES="$PWD"
+. "${DOTFILES}/install/lib/helpers.sh"
+. "${DOTFILES}/install/lib/prints.sh"
+
+# Check required packages
+__require zsh
+__require nvim
+__require curl
+
+# symlink .zshenv to $HOME as zsh does not support XDG specification, .zshrc is sourced inside .zshenv from XDG_CONFIG_HOME/zsh/
+ln -sfn "${DOTFILES}/.zshenv" "${HOME}/.zshenv"
+
+# Set user shell to zsh
+# TODO: Doesnt work when script is run as sudo
+# TODO: Figure out how to avoid asking for password if script is run as sudo
+if [[ ! $SHELL =~ "zsh" ]]; then
+    __p_echo "I require your password in order to change the default shell to ZSH"
+    chsh -s "$(which zsh)"
+    if [ $? -eq 0 ]
+    then
+        __p_echo "The default shell was changed to ZSH"
+    else
+        __p_err "Couldn't change the shell to ZSH"
+    fi
+fi
+
+# Create $XDG_CONFIG_HOME and $XDG_DATA_HOME
+mkdir -p "${XDG_CONFIG_HOME}" "${XDG_DATA_HOME}"
+
+# Symlink everything inside config dir into $XDG_CONFIG_HOME
+for link in "${DOTFILES}/config/"*; do
+    ln -sfn "${link}" "${XDG_CONFIG_HOME}/$(basename "${link}")"
+done
+
+# Clone p10k into $XDG_DATA_HOME
+if [[ ! -f "${XDG_DATA_HOME}/powerlevel10k" ]]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${XDG_DATA_HOME}/powerlevel10k"
+fi
+
+# Curl vim-plug into $XDG_DATA_HOME
+if [[ ! -d "${XDG_DATA_HOME}/nvim/site/autoload/plug.vim" ]]; then
+    curl -fLo "${XDG_DATA_HOME}/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+# Conda installation
+if ! __has conda; then
+    curl -fLo "${XDG_DATA_HOME}/miniconda3.sh" --create-dirs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    bash "${XDG_DATA_HOME}/miniconda3.sh" -b -p "${XDG_DATA_HOME}/miniconda3" -f
+    rm "${XDG_DATA_HOME}/miniconda3.sh"
+    eval "${XDG_DATA_HOME}/miniconda3/bin/python ${DOTFILES}/install/lib/init_zsh.py"
+fi
