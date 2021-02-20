@@ -1,0 +1,5 @@
+[user]
+	email = vojtechdornak@gmail.com
+	name = dornakv
+[diff]
+	tool = vimdiff
