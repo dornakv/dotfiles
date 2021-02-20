@@ -12,6 +12,7 @@ fi
 if [[ -z "$XDG_CACHE_HOME" ]]; then
     XDG_CACHE_HOME="$HOME/.cache"
 fi
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Move execution to the dotfiles directory and load dependencies
 
