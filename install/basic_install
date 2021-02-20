@@ -51,12 +51,12 @@ for link in "${DOTFILES}/config/"*; do
 done
 
 # Clone p10k into $XDG_DATA_HOME
-if [[ ! -f "${XDG_DATA_HOME}/powerlevel10k" ]]; then
+if [[ ! -d "${XDG_DATA_HOME}/powerlevel10k" ]]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${XDG_DATA_HOME}/powerlevel10k"
 fi
 
 # Curl vim-plug into $XDG_DATA_HOME
-if [[ ! -d "${XDG_DATA_HOME}/nvim/site/autoload/plug.vim" ]]; then
+if [[ ! -f "${XDG_DATA_HOME}/nvim/site/autoload/plug.vim" ]]; then
     curl -fLo "${XDG_DATA_HOME}/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
