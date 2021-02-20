@@ -7,8 +7,6 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-set clipboard=unnamedplus
-
 "Persistent undo and directory for undo files in ~/.vim
 set undodir=~/.local/share/nvim
 set undofile
