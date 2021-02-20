@@ -35,5 +35,6 @@ if uname -a | grep microsoft>/dev/null; then
 
 fi
 
+bindkey -v
 
 source ${XDG_CONFIG_HOME}/zsh/.conda_init
