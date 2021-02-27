@@ -9,7 +9,15 @@ set shiftwidth=4
 
 set clipboard=unnamedplus
 
-"Persistent undo and directory for undo files in ~/.vim
+" Set path to python (default behavior messed up by conda envs) (might be
+" better to create new conda env in install script and point to it)
+let g:python_host_prog  = '/usr/bin/python2'
+let g:python3_host_prog  = '/usr/bin/python3'
+
+" Enable default autocomplete
+filetype plugin indent on
+
+" Persistent undo
 set undodir=~/.local/share/nvim
 set undofile
 
