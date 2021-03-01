@@ -34,6 +34,11 @@ git clone git@github.com:dornakv/dotfiles.git
 ./dotfiles/install/basic_install
 ```
 
+6. Install vim plugins:
+```sh
+vim +PlugInstall +qall
+```
+
 ## Font
 
 ### WSL2 and Windows Terminal
