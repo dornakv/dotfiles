@@ -11,7 +11,8 @@ set clipboard=unnamedplus
 
 " Set path to python (default behavior messed up by conda envs) (might be
 " better to create new conda env in install script and point to it)
-let g:python_host_prog  = '/usr/bin/python2'
+let g:loaded_python_provider = 0
+let g:python_host_prog = ''
 let g:python3_host_prog  = '/usr/bin/python3'
 
 " Enable default autocomplete
