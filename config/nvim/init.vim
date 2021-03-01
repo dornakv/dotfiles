@@ -7,7 +7,6 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-<<<<<<< HEAD
 set clipboard=unnamedplus
 
 " Set path to python (default behavior messed up by conda envs) (might be
