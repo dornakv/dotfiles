@@ -38,7 +38,13 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=0
 let g:tex_conceal='abdmg'
 
+Plug 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot=0
+
 call plug#end()
+
+" So that jedi-vim can search in right conda environment
+let $VIRTUAL_ENV = $CONDA_PREFIX
 
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
