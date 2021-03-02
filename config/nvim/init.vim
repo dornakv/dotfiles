@@ -9,6 +9,9 @@ set shiftwidth=4
 
 set clipboard=unnamedplus
 
+" Hide search highlighting on enter
+nnoremap <CR> :noh<CR><CR>
+
 " Set path to python (default behavior messed up by conda envs) (might be
 " better to create new conda env in install script and point to it)
 let g:loaded_python_provider = 0
