@@ -3,8 +3,8 @@ source ${XDG_DATA_HOME}/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ${XDG_CONFIG_HOME}/zsh/.p10k.zsh ]] || source ${XDG_CONFIG_HOME}/zsh/.p10k.zsh
 
 case $(uname) in
-    Linux) alias ll="ls -l --color=auto";;
-    Darwin) alias ll="ls -lG";;
+    Linux) alias ll="ls -lh --color=auto";;
+    Darwin) alias ll="ls -lhG";;
     *) echo "Not sure what system are you using, cannot set the ll alias";;
 esac
 alias la="ll -a"
