@@ -31,6 +31,8 @@ syntax on
 
 " Default to tree mode
 let g:netrw_liststyle = 3
+let g:netrw_preview = 1
+let g:netrw_banner=0
 
 call plug#begin()
 
@@ -55,20 +57,20 @@ let $VIRTUAL_ENV = $CONDA_PREFIX
 
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
-    if exists("t:expl_buf_num")
-        let expl_win_num = bufwinnr(t:expl_buf_num)
-        if expl_win_num != -1
-            let cur_win_nr = winnr()
-            exec expl_win_num . 'wincmd w'
-            close
-            exec cur_win_nr . 'wincmd w'
-            unlet t:expl_buf_num
-        else
-            unlet t:expl_buf_num
+    let g:VExplorerShouldOpen = 1
+    let i = bufnr("$")
+    while (i >= 1)
+        if (getbufvar(i, "&filetype") == "netrw")
+            silent exe "bwipeout " . i
+            let g:VExplorerShouldOpen = 0
         endif
-    else
+        let i-=1
+    endwhile
+
+    if g:VExplorerShouldOpen
         exec '1wincmd w'
-        Vexplore
+        silent Vexplore
+        let g:netrw_chgwin = winnr() + 1
         exec "vertical resize 30"
         let t:expl_buf_num = bufnr("%")
     endif
