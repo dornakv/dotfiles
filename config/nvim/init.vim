@@ -55,25 +55,15 @@ call plug#end()
 " So that jedi-vim can search in right conda environment
 let $VIRTUAL_ENV = $CONDA_PREFIX
 
-" Toggle Vexplore with Ctrl-E
-function! ToggleVExplorer()
-    let g:VExplorerShouldOpen = 1
-    let i = bufnr("$")
-    while (i >= 1)
-        if (getbufvar(i, "&filetype") == "netrw")
-            silent exe "bwipeout " . i
-            let g:VExplorerShouldOpen = 0
-        endif
-        let i-=1
-    endwhile
-
-    if g:VExplorerShouldOpen
-        exec '1wincmd w'
-        silent Vexplore
-        let g:netrw_chgwin = winnr() + 1
-        exec "vertical resize 30"
-        let t:expl_buf_num = bufnr("%")
+" Save and toggle Explore with <C-E>
+function! ToggleExplore()
+    if &ft ==# "netrw"
+        silent bd
+    else
+        silent write
+        silent Explore
     endif
+
 endfunction
-map <silent> <C-E> :call ToggleVExplorer()<CR>
+map <silent> <C-E> :call ToggleExplore()<CR>
 

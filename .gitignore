@@ -3,3 +3,4 @@ config/zsh/.zsh_history
 config/zsh/.conda_init
 config/nvim/plugged
 config/nvim/.netrwhist
+config/nvim/.netrwbook
