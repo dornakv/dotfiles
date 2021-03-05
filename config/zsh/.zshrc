@@ -2,9 +2,12 @@ source ${XDG_DATA_HOME}/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit .p10k.zsh.
 [[ ! -f ${XDG_CONFIG_HOME}/zsh/.p10k.zsh ]] || source ${XDG_CONFIG_HOME}/zsh/.p10k.zsh
 
+export HISTSIZE=2000
+
+
 case $(uname) in
-    Linux) alias ll="ls -lh --color=auto";;
-    Darwin) alias ll="ls -lhG";;
+    Linux) alias ll="ls -lh --color=auto --hide='__pycache__'";;
+    Darwin) alias ll="ls -lhG --hide='__pycache__'";;
     *) echo "Not sure what system are you using, cannot set the ll alias";;
 esac
 alias la="ll -a"
