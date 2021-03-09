@@ -50,6 +50,11 @@ let g:vimtex_compiler_latexmk = {
 Plug 'davidhalter/jedi-vim'
 let g:jedi#popup_on_dot=0
 
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
 call plug#end()
 
 " So that jedi-vim can search in right conda environment
