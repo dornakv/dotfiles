@@ -6,12 +6,16 @@ export HISTSIZE=2000
 
 
 case $(uname) in
-    Linux) alias ll="ls -lh --color=auto --hide='__pycache__'";;
-    Darwin) alias ll="ls -lhG --hide='__pycache__'";;
+    Linux)
+        alias ll="ls -lh --color=auto --hide='__pycache__'"
+        alias la="ls -lah --color=auto"
+        ;;
+    Darwin)
+        alias ll="ls -lhG --hide='__pycache__'"
+        alias la="ls -lhG"
+        ;;
     *) echo "Not sure what system are you using, cannot set the ll alias";;
 esac
-alias la="ll -a"
-alias cls="clear"
 
 # Replace vim with neovim
 alias vim="nvim"
