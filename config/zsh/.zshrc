@@ -16,6 +16,7 @@ case $(uname) in
         ;;
     *) echo "Not sure what system are you using, cannot set the ll alias";;
 esac
+alias cls="clear"
 
 # Replace vim with neovim
 alias vim="nvim"
