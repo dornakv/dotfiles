@@ -27,6 +27,8 @@ set undofile
 
 set mouse=a
 
+autocmd TermOpen * setlocal nonumber norelativenumber
+
 syntax on
 
 " Default to tree mode
@@ -55,7 +57,13 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
+Plug 'andviro/flake8-vim'
+
 call plug#end()
+
+autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<CR>
+autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 " So that jedi-vim can search in right conda environment
 let $VIRTUAL_ENV = $CONDA_PREFIX
