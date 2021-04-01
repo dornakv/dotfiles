@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source basic_install
+
+# Conda installation
+if ! __has conda; then
+    curl -fLo "${XDG_DATA_HOME}/miniconda3.sh" --create-dirs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    bash "${XDG_DATA_HOME}/miniconda3.sh" -b -p "${XDG_DATA_HOME}/miniconda3" -f
+    rm "${XDG_DATA_HOME}/miniconda3.sh"
+    eval "${XDG_DATA_HOME}/miniconda3/bin/python ${DOTFILES}/install/lib/init_zsh.py"
+fi
