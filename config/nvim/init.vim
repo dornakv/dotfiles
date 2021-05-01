@@ -73,6 +73,7 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 Plug 'andviro/flake8-vim'
+let g:PyFlakeDefaultComplexity = 20
 
 call plug#end()
 
