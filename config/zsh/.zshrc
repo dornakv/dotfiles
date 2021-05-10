@@ -44,4 +44,4 @@ if uname -a | grep microsoft>/dev/null; then
 
 fi
 
-source ${XDG_CONFIG_HOME}/zsh/.conda_init
+[[ ! -f ${XDG_CONFIG_HOME}/zsh/.conda_init ]] || source ${XDG_CONFIG_HOME}/zsh/.conda_init
