@@ -3,8 +3,19 @@
 source basic_install
 
 # Conda installation
+
+
 if ! __has conda; then
-    curl -fLo "${XDG_DATA_HOME}/miniconda3.sh" --create-dirs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    case $(uname) in
+        Linux)
+            curl -fLo "${XDG_DATA_HOME}/miniconda3.sh" --create-dirs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+            ;;
+        Darwin)
+            curl -fLo "${XDG_DATA_HOME}/miniconda3.sh" --create-dirs https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+            ;;
+        *) echo "Not sure what system are you using, cannot install miniconda";;
+    esac
+
     bash "${XDG_DATA_HOME}/miniconda3.sh" -b -p "${XDG_DATA_HOME}/miniconda3" -f
     rm "${XDG_DATA_HOME}/miniconda3.sh"
     eval "${XDG_DATA_HOME}/miniconda3/bin/python ${DOTFILES}/install/lib/init_zsh.py"
