@@ -13,6 +13,11 @@ case $(uname) in
     Linux)
         alias ll="ls -lh --color=auto --hide='__pycache__'"
         alias la="ls -lah --color=auto"
+
+        # Remove background from ls color output
+        eval "$(dircolors -p | \
+            sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
+            dircolors /dev/stdin)"
         ;;
     Darwin)
         alias ll="ls -lhG"
@@ -20,11 +25,6 @@ case $(uname) in
         ;;
     *) echo "Not sure what system are you using, cannot set the ll alias";;
 esac
-
-# Remove background from ls color output
-eval "$(dircolors -p | \
-    sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
-    dircolors /dev/stdin)"
 
 alias cls="clear"
 alias py="python"
