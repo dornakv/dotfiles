@@ -60,7 +60,5 @@ fi
 
 [[ ! -f ${XDG_CONFIG_HOME}/zsh/.conda_init ]] || source ${XDG_CONFIG_HOME}/zsh/.conda_init
 
-if [ -z "$TMUX" ]
-then
-    tmux attach -t TMUX || tmux new -s TMUX
-fi
+
+[[ ! -f ${XDG_CONFIG_HOME}/zsh/.zshrc_local ]] || source ${XDG_CONFIG_HOME}/zsh/.zshrc_local

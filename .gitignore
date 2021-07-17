@@ -5,3 +5,4 @@ config/nvim/plugged
 config/nvim/.netrwhist
 config/nvim/.netrwbook
 config/nvim/spell/
+config/zsh/.zshrc_local
