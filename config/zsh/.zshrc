@@ -15,8 +15,8 @@ case $(uname) in
         alias la="ls -lah --color=auto"
         ;;
     Darwin)
-        alias ll="ls -lhG --hide='__pycache__'"
-        alias la="ls -lhG"
+        alias ll="ls -lhG"
+        alias la="ls -lahG"
         ;;
     *) echo "Not sure what system are you using, cannot set the ll alias";;
 esac
