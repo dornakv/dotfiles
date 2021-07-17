@@ -12,19 +12,19 @@ set clipboard=unnamedplus
 " Hide search highlighting on enter
 nnoremap <CR> :noh<CR><CR>
 
-" Use ALT-{h,j,k,l} to navigate windows from any mode:
-tnoremap <A-h> <C-\><C-N><C-w>h
-tnoremap <A-j> <C-\><C-N><C-w>j
-tnoremap <A-k> <C-\><C-N><C-w>k
-tnoremap <A-l> <C-\><C-N><C-w>l
-inoremap <A-h> <C-\><C-N><C-w>h
-inoremap <A-j> <C-\><C-N><C-w>j
-inoremap <A-k> <C-\><C-N><C-w>k
-inoremap <A-l> <C-\><C-N><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+" Use CTRL-{h,j,k,l} to navigate windows from any mode:
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 
 " Set path to python (default behavior messed up by conda envs) (might be
@@ -56,6 +56,7 @@ call plug#begin()
 Plug 'lervag/vimtex'
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
+let g:vimtex_view_automatic=0
 let g:vimtex_quickfix_mode=0
 set conceallevel=0
 let g:tex_conceal='abdmg'
@@ -74,6 +75,14 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 Plug 'andviro/flake8-vim'
 let g:PyFlakeDefaultComplexity = 20
+
+Plug 'christoomey/vim-tmux-navigator'
+
+" Plug 'vim-pandoc/vim-pandoc'
+
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+" let g:pandoc#syntax#conceal#use = 0
+
 
 call plug#end()
 
