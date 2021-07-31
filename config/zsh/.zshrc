@@ -9,6 +9,9 @@ setopt appendhistory
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
+# Match zsh completion case insensitive
+zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
+
 case $(uname) in
     Linux)
         alias ll="ls -lh --color=auto --hide='__pycache__'"
