@@ -60,5 +60,4 @@ fi
 
 [[ ! -f ${XDG_CONFIG_HOME}/zsh/.conda_init ]] || source ${XDG_CONFIG_HOME}/zsh/.conda_init
 
-
 [[ ! -f ${XDG_CONFIG_HOME}/zsh/.zshrc_local ]] || source ${XDG_CONFIG_HOME}/zsh/.zshrc_local
