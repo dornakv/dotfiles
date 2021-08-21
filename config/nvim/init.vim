@@ -78,6 +78,10 @@ let g:PyFlakeDefaultComplexity = 20
 
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'Xuyuanp/scrollbar.nvim'
+
+" Plug 'wfxr/minimap.vim'
+
 " Plug 'vim-pandoc/vim-pandoc'
 
 " Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -85,6 +89,13 @@ Plug 'christoomey/vim-tmux-navigator'
 
 
 call plug#end()
+
+augroup ScrollbarInit
+  autocmd!
+  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+  autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+augroup end
 
 autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<CR>
 autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
