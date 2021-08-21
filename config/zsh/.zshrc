@@ -29,7 +29,7 @@ case $(uname) in
     *) echo "Not sure what system are you using, cannot set the ll alias";;
 esac
 
-alias cls="clear"
+alias clc="clear"
 alias py="python"
 alias sudo="sudo "
 
