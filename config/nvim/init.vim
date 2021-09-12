@@ -68,13 +68,13 @@ let g:vimtex_compiler_latexmk = {
 Plug 'davidhalter/jedi-vim'
 let g:jedi#popup_on_dot=0
 
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" Plug 'SirVer/ultisnips'
+" let g:UltiSnipsExpandTrigger = '<tab>'
+" let g:UltiSnipsJumpForwardTrigger = '<tab>'
+" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-Plug 'andviro/flake8-vim'
-let g:PyFlakeDefaultComplexity = 20
+"Plug 'andviro/flake8-vim'
+"let g:PyFlakeDefaultComplexity = 20
 
 Plug 'christoomey/vim-tmux-navigator'
 

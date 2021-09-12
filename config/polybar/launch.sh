@@ -7,4 +7,10 @@ killall -q polybar
 # polybar-msg cmd quit
 
 # Launch status_bar
-polybar status_bar 2>&1 | tee -a /tmp/polybar1.log & disown
+if type "xrandr"; then
+    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        MONITOR=$m polybar --reload status_bar &
+    done
+else
+    polybar --reload status_bar &
+fi

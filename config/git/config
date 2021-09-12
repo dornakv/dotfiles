@@ -3,3 +3,5 @@
 	name = dornakv
 [diff]
 	tool = vimdiff
+[init]
+	defaultBranch = main
