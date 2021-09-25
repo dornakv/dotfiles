@@ -2,8 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor HDMI-1 -d 1 3 5 7 9
-bspc monitor DVI-D-1 -d 2 4 6 8 0
+source $HOME/.config/bspwm/bspwmrc_local
 
 bspc config border_width           2
 bspc config window_gap             6
@@ -36,6 +35,9 @@ dunst &
 
 # Set wallpaper
 feh --bg-scale $HOME/.config/wallpaper/wallpaper.jpg &
+
+# nm-applet - Network manager applet
+nm-applet &
 
 # Blueman - Bluetooth manager
 blueman-applet &

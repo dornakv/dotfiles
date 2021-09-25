@@ -1,6 +1,6 @@
 source ${XDG_DATA_HOME}/powerlevel10k/powerlevel10k.zsh-theme
-# To customize prompt, run `p10k configure` or edit .p10k.zsh.
-[[ ! -f ${XDG_CONFIG_HOME}/zsh/.p10k.zsh ]] || source ${XDG_CONFIG_HOME}/zsh/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit p10k.zsh.
+[[ ! -f ${XDG_CONFIG_HOME}/zsh/p10k.zsh ]] || source ${XDG_CONFIG_HOME}/zsh/p10k.zsh
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=5000
@@ -61,6 +61,6 @@ if uname -a | grep microsoft>/dev/null; then
 
 fi
 
-[[ ! -f ${XDG_CONFIG_HOME}/zsh/.conda_init ]] || source ${XDG_CONFIG_HOME}/zsh/.conda_init
+[[ ! -f ${XDG_CONFIG_HOME}/zsh/conda_init ]] || source ${XDG_CONFIG_HOME}/zsh/conda_init
 
-[[ ! -f ${XDG_CONFIG_HOME}/zsh/.zshrc_local ]] || source ${XDG_CONFIG_HOME}/zsh/.zshrc_local
+[[ ! -f ${XDG_CONFIG_HOME}/zsh/zshrc_local ]] || source ${XDG_CONFIG_HOME}/zsh/zshrc_local
