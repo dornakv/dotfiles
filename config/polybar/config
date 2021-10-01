@@ -37,7 +37,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm
 modules-center = xkeyboard date
-modules-right = pulseaudio
+modules-right = pulseaudio battery
 
 tray-position = right
 tray-padding = 2
@@ -308,7 +308,7 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline =
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
