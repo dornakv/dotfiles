@@ -28,7 +28,8 @@ xrdb -merge -I$HOME $HOME/.Xresources
 source $HOME/.config/polybar/launch.sh &
 
 #Picom - Compositor for Xorg
-picom -b &
+killall -q picom
+picom -b --backend xr_glx_hybrid --vsync --vsync-use-glfinish &
 
 # Dunst - Notification daemon
 dunst &
