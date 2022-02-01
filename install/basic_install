@@ -27,8 +27,6 @@ __require nvim
 __require curl
 
 # Set user shell to zsh
-# TODO: Doesnt work when script is run as sudo
-# TODO: Figure out how to avoid asking for password if script is run as sudo
 if [[ ! $SHELL =~ "zsh" ]]; then
     __p_echo "I require your password in order to change the default shell to ZSH"
     chsh -s "$(which zsh)"
@@ -47,14 +45,3 @@ mkdir -p "${XDG_CONFIG_HOME}" "${XDG_DATA_HOME}"
 for link in "${DOTFILES}/config/"*; do
     ln -sfn "${link}" "${XDG_CONFIG_HOME}/$(basename "${link}")"
 done
-
-# Clone p10k into $XDG_DATA_HOME
-if [[ ! -d "${XDG_DATA_HOME}/powerlevel10k" ]]; then
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${XDG_DATA_HOME}/powerlevel10k"
-fi
-
-# Curl vim-plug into $XDG_DATA_HOME
-if [[ ! -f "${XDG_DATA_HOME}/nvim/site/autoload/plug.vim" ]]; then
-    curl -fLo "${XDG_DATA_HOME}/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
