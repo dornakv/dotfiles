@@ -1,6 +1,6 @@
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #e222
+background = #aa050505
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -11,10 +11,12 @@ alert = #bd2c40
 
 [bar/status_bar]
 monitor = ${env:MONITOR:}
-width = 100%
+width = 99.6%
 height = 27
-radius = 0
+radius = 5
 fixed-center = true
+offset-y = 5
+offset-x = 0.2%
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -27,6 +29,7 @@ border-color = #00000000
 
 padding-left = 0
 padding-right = 2
+padding-top = 5
 
 module-margin-left = 1
 module-margin-right = 2
@@ -36,11 +39,11 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm
-modules-center = xkeyboard date
-modules-right = pulseaudio battery
+modules-center = date
+modules-right = xkeyboard pulseaudio battery flameshot
 
-tray-position = right
-tray-padding = 2
+;tray-position = right
+;tray-padding = 2
 ;tray-background = #0063ff
 
 wm-restack = bspwm
@@ -249,14 +252,14 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
 label-muted-foreground = #666
 
-bar-volume-width = 10
+bar-volume-width = 5
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -381,6 +384,13 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/flameshot]
+type = custom/script
+format = <label>
+format-foreground = ${colors.secondary}
+label = screenshot
+click-left = flameshot gui
 
 [settings]
 screenchange-reload = true

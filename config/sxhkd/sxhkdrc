@@ -8,8 +8,7 @@ super + Return
 
 # program launcher
 super + @space
-#    dmenu_run
-   rofi -show run
+    rofi -show run
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -18,10 +17,6 @@ super + Escape
 #
 # bspwm hotkeys
 #
-
-# take interactive screenshot
-super + @p
-    scrot $HOME/Desktop/'%Y-%m-%d-%H_%M_%S'.png --select --multidisp --silent
 
 # quit/restart bspwm
 super + alt + {q,r}
@@ -48,7 +43,7 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,f,shift + f}
+super + {t,shift + t,s,f}
     bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -60,8 +55,8 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l,Left,Down,Up,Right}
-    bspc node -{f,s} {west,south,north,east,west,south,north,east}
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east} --follow
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
@@ -124,3 +119,23 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
     bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Volume control
+XF86AudioLowerVolume
+    pamixer --decrease 5
+
+XF86AudioRaiseVolume
+    pamixer --increase 5
+
+XF86AudioMute
+    pamixer --toggle-mute
+
+# Media keys
+XF86AudioPrev
+    playerctl previous
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPlay
+    playerctl play-pause

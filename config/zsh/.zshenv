@@ -1,5 +1,3 @@
-# Sadly, this file must reside in $HOME, these variables could be set up in /etc/profile, but this would interfere with other user setups
-
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
     export XDG_CONFIG_HOME="$HOME/.config"
 fi

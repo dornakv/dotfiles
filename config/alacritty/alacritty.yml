@@ -1,10 +1,13 @@
 font:
   normal:
-    family: "MesloLGS NF"
+    family: RobotoMono
+  size: 11
 
-  size: 9
-
-background_opacity: 0.95
+window:
+  opacity: 0.95
+  padding:
+    x: 2
+    y: 2
 
 # Colors (Darktooth)
 colors:
@@ -52,8 +55,3 @@ colors:
     magenta: '#4e3d45'
     cyan:    '#205161'
     white:   '#f4e8ba'
-
-window:
-  padding:
-    x: 2
-    y: 2
