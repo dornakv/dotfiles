@@ -26,9 +26,6 @@ __require zsh
 __require nvim
 __require curl
 
-# symlink .zshenv to $HOME as zsh does not support XDG specification, .zshrc is sourced inside .zshenv from XDG_CONFIG_HOME/zsh/
-ln -sfn "${DOTFILES}/.zshenv" "${HOME}/.zshenv"
-
 # Set user shell to zsh
 # TODO: Doesnt work when script is run as sudo
 # TODO: Figure out how to avoid asking for password if script is run as sudo
