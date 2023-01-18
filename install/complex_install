@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-source basic_install
+# Run basic_install from current directory
+. "$(dirname "$0")/basic_install"
 
 # Conda installation
-
-INITZSH="${DOTFILES}/install/lib/init_zsh.py"
 
 if ! __has conda; then
     case $(uname) in
@@ -26,5 +25,5 @@ if ! __has conda; then
 
     bash "${XDG_DATA_HOME}/miniconda3.sh" -b -p "${XDG_DATA_HOME}/miniconda3" -f
     rm "${XDG_DATA_HOME}/miniconda3.sh"
-    eval "${XDG_DATA_HOME}/miniconda3/bin/python ${INITZSH}"
+    eval "${XDG_DATA_HOME}/miniconda3/bin/python ${DOTFILES}/install/lib/init_zsh.py"
 fi
