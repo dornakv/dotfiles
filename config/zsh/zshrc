@@ -30,7 +30,7 @@ function spwd { # https://stackoverflow.com/questions/45263799/collapse-director
 
 autoload -U colors && colors
 setopt prompt_subst
-PS1="%n@%m:%(4~|.../%3~|%~)> "
+PS1=$'%n@%m:%(4~|.../%3~|%~)$ '
 
 # zsh Settings
 export HISTFILE=~/.zsh_history
