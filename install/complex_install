@@ -12,7 +12,14 @@ if ! __has conda; then
             curl -fLo "${XDG_DATA_HOME}/miniconda3.sh" --create-dirs https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
             ;;
         Darwin)
-            curl -fLo "${XDG_DATA_HOME}/miniconda3.sh" --create-dirs https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+            case $(uname -m) in
+                arm64)
+                    curl -fLo "${XDG_DATA_HOME}/miniconda3.sh" --create-dirs https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
+                    ;;
+                *)
+                    curl -fLo "${XDG_DATA_HOME}/miniconda3.sh" --create-dirs https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+                    ;;
+            esac
             ;;
         *) echo "Not sure what system are you using, cannot install miniconda";;
     esac
