@@ -15,7 +15,6 @@ fi
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Move execution to the dotfiles directory and load dependencies
-
 cd -- "$(dirname "$0")/.." || exit 1
 DOTFILES="$PWD"
 . "${DOTFILES}/install/lib/helpers.sh"
