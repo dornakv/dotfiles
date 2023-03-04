@@ -42,5 +42,15 @@ mkdir -p "${XDG_CONFIG_HOME}" "${XDG_DATA_HOME}"
 
 # Symlink everything inside config dir into $XDG_CONFIG_HOME
 for link in "${DOTFILES}/config/"*; do
+    # Skip ln if directory exists and is not symlink
+    # othervise it would create the symlink inside the directory
+    # Could replace the directory with symlink,
+    # however, would rather user deletes it, so I do not destroy data
+    if [[ -d "${XDG_CONFIG_HOME}/$(basename "${link}")" ]]; then
+        if [[ ! -L "${XDG_CONFIG_HOME}/$(basename "${link}")" ]]; then
+            __p_warn "Directory '${XDG_CONFIG_HOME}/$(basename "${link}")' exists"
+            continue
+        fi
+    fi
     ln -sfn "${link}" "${XDG_CONFIG_HOME}/$(basename "${link}")"
 done
