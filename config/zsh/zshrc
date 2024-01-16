@@ -44,6 +44,7 @@ setopt SHARE_HISTORY
 export GPG_TTY=$(tty)
 
 # Match zsh completion case insensitive
+autoload -Uz compinit && compinit
 zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 
 case $(uname) in
