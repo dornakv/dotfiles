@@ -1,7 +1,12 @@
 [user]
 	email = vojtechdornak@gmail.com
 	name = dornakv
+	signingkey = C1557555E850FFCE984CE2368CF78CD124D0EA50
 [diff]
 	tool = vimdiff
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
