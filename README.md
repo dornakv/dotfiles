@@ -71,9 +71,9 @@ The order in which zsh config files are loaded:
 +----------------+-----------+-----------+------+
 |/etc/zlogout    |    J      |           |      |
 +----------------+-----------+-----------+------+
-to load `.config\zsh\.zshrc` after `\etc\zshrc`, run
+to load `.config/zsh/.zshrc` after `/etc/zshrc`, run
 ```sh
-echo ". $ZDOTDIR/zshrc" > \etc\zshrc
+echo ". $ZDOTDIR/zshrc" > /etc/zshrc
 ```
 
 ## Font
