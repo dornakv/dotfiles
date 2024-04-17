@@ -13,5 +13,3 @@ fi
 if [[ -z "$ZDOTDIR" ]]; then
     export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 fi
-
-. $ZDOTDIR/zshrc
