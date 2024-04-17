@@ -39,6 +39,43 @@ git clone git@github.com:dornakv/dotfiles.git
 vim +PlugInstall +qall
 ```
 
+## macOS specifics
+### ZSH
+The order in which zsh config files are loaded:
+(from [Zsh/Bash startup files loading order (.bashrc, .zshrc etc.)](https://medium.com/@rajsek/zsh-bash-startup-files-loading-order-bashrc-zshrc-etc-e30045652f2e)
++----------------+-----------+-----------+------+
+|                |Interactive|Interactive|Script|
+|                |login      |non-login  |      |
++----------------+-----------+-----------+------+
+|/etc/zshenv     |    A      |    A      |  A   |
++----------------+-----------+-----------+------+
+|~/.zshenv       |    B      |    B      |  B   |
++----------------+-----------+-----------+------+
+|/etc/zprofile   |    C      |           |      |
++----------------+-----------+-----------+------+
+|~/.zprofile     |    D      |           |      |
++----------------+-----------+-----------+------+
+|/etc/zshrc      |    E      |    C      |      |
++----------------+-----------+-----------+------+
+|~/.zshrc        |    F      |    D      |      |
++----------------+-----------+-----------+------+
+|/etc/zlogin     |    G      |           |      |
++----------------+-----------+-----------+------+
+|~/.zlogin       |    H      |           |      |
++----------------+-----------+-----------+------+
+|                |           |           |      |
++----------------+-----------+-----------+------+
+|                |           |           |      |
++----------------+-----------+-----------+------+
+|~/.zlogout      |    I      |           |      |
++----------------+-----------+-----------+------+
+|/etc/zlogout    |    J      |           |      |
++----------------+-----------+-----------+------+
+to load `.config\zsh\.zshrc` after `\etc\zshrc`, run
+```sh
+echo ". $ZDOTDIR/zshrc" > \etc\zshrc
+```
+
 ## Font
 
 ### WSL2 and Windows Terminal
