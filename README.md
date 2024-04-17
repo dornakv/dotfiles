@@ -2,7 +2,7 @@
 My personal dotfiles
 
 ## TOC
-- [ubuntu/debian setup](#ubuntu-debian-setup)
+- [ubuntu/debian setup](#ubuntudebian-setup)
 - [explanations](#explanations)
 - [Font](#font)
   * [WSL2 and Windows Terminal](#wsl2-and-windows-terminal)
