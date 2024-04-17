@@ -3,6 +3,7 @@ My personal dotfiles
 
 ## TOC
 - [ubuntu/debian setup](#ubuntu-debian-setup)
+- [explanations](#explanations)
 - [Font](#font)
   * [WSL2 and Windows Terminal](#wsl2-and-windows-terminal)
 
@@ -39,7 +40,7 @@ git clone git@github.com:dornakv/dotfiles.git
 vim +PlugInstall +qall
 ```
 
-## macOS specifics
+## Explanations
 ### ZSH
 The order in which zsh config files are loaded:
 (from [Zsh/Bash startup files loading order (.bashrc, .zshrc etc.)](https://medium.com/@rajsek/zsh-bash-startup-files-loading-order-bashrc-zshrc-etc-e30045652f2e)
